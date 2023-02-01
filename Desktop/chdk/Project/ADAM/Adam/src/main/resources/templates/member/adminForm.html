@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout3}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 각 페이지의 스크립트가 작성될 위치 -->
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+	    //회원가입이 실패했을때
+		$(document).ready(function(){
+        	var errorMessage = [[${errorMessage}]];
+        	if(errorMessage != null){
+            	alert(errorMessage);
+        	}
+    	});
+	</script>
+</th:block>
+
+<!-- 각 페이지의 CSS가 작성될 위치 -->
+<th:block layout:fragment="css">
+	<style>
+</style>
+</th:block>
+
+</head>
+<body>
+	<div layout:fragment="content">
+	
+	<div class="header_title">
+	  <h3>대표회원가입</h3>
+	  <h5>회원가입을 하시면 <a class="font_color_blue">아</a>이디어를 <a class="font_color_blue">담</a>을 수 있습니다.</h5>
+	</div>
+	
+		<div class="form_wrap">
+	<div class="form_title"><h3>회원정보</h3></div>
+			<form class="row g-3 needs-validation" novalidate>
+				<div class="col-md-12">
+					<label for="validationCustom01" class="form-label">이름</label> <input type="text" class="form-control"
+						id="validationCustom01" required>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+				<div class="col-md-12">
+					<label for="validationCustom02" class="form-label">아이디</label> <input type="text" class="form-control"
+						id="validationCustom02" required>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+				<div class="col-md-12">
+					<label for="validationCustom03" class="form-label">비밀번호</label> <input type="password" class="form-control"
+						id="validationCustom03" required>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+				<div class="col-md-12">
+					<label for="validationCustom04" class="form-label">비밀번호확인</label> <input type="password" class="form-control"
+						id="validationCustom04" required>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+				<div class="col-md-12">
+					<label for="validationCustom05" class="form-label">회사명</label> <input type="text" class="form-control"
+						id="validationCustom05" required>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+				<div class="col-md-12">
+					<label for="validationCustom06" class="form-label">회사코드</label> <input type="text" class="form-control"
+						id="validationCustom06" value="10001" style="color: gray; font-weight:bold; text-align: right;" required readonly>
+					<div class="valid-feedback">Looks good!</div>
+				</div>
+						
+				<div class="col-12">
+					<button class="btn btn-primary btn_add" type="submit">가입하기</button>
+					<button type="button" class="btn btn-primary btn_delete" onclick = "location.href = '/'">취소</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
